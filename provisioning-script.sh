@@ -27,7 +27,7 @@ else
   exit 1
 fi
 
-MINER_BIN="$(find "$MINER_DIR" -maxdepth 3 -type f \( -name 'SRBMiner-MULTI' -o -name 'SRBMiner-Multi' -o -name 'SRBMin>
+MINER_BIN="$(find "$MINER_DIR" -maxdepth 3 -type f \( -name 'SRBMiner-MULTI' -o -name 'SRBMiner-Multi' -o -name 'SRBMiner-Multi-Linux' \) | head -n 1)"
 
 if [ -z "$MINER_BIN" ]; then
   echo "Miner binary not found in $MINER_DIR"
@@ -42,3 +42,4 @@ exec "$MINER_BIN" \
   --pool "$POOL" \
   --wallet "$WALLET" \
   --worker "$WORKER" \
+  --password "$PASSWORD"
